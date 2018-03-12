@@ -1,0 +1,57 @@
+config firewall address
+edit "vPBX-$ClientName_$LanIP"
+set associated-interface "PBX_Host"
+set subnet $LanIP 255.255.255.255
+next
+edit "$ClientName_$ClientAdress"
+set subnet $ClientAdress 255.255.255.0
+next
+end
+
+config firewall ippool
+edit "vPBX_$ClientName_$WanIP"
+set startip $WanIP
+set endip $WanIP
+next
+end
+
+config firewall vip
+edit "vPBX_$ClientName_$WanIP"
+set extip $WanIP
+set extintf "any"
+set mappedip "$LanIP"
+next
+end
+
+config firewall policy
+edit 0
+set srcintf "PBX_Host"
+set dstintf "PC_Cellcom_ISP"
+set srcaddr "vPBX-$ClientName_$LanIP"
+set dstaddr "all"
+set action accept
+set schedule "always"
+set service "PBX_to_Int_Service_Group"
+set nat enable
+set ippool enable
+set poolname "vPBX_$ClientName_$WanIP"
+next
+edit 0
+set srcintf "$ClientInterface"
+set dstintf "PBX_Host"
+set srcaddr "$ClientName_$ClientAdress"
+set dstaddr "vPBX-$ClientName_$LanIP"
+set action accept
+set schedule "always"
+set service "HTTPS" "HTTP" "PBX-Phones"
+next
+edit 0
+set srcintf "PBX_Host"
+set dstintf "$ClientInterface"
+set srcaddr "vPBX-$ClientName_$LanIP"
+set dstaddr "$ClientName_$ClientAdress"
+set action accept
+set schedule "always"
+set service "VOIP" "PING"
+next
+end

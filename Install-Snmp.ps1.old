@@ -1,0 +1,96 @@
+﻿#clear
+$CommunityString = "fwpublic"
+$PermitedManagers = "172.16.16.31"
+Function Configure_SNMP_Attributes ([string]$CommunityString , [string]$PermitedManagers)
+{
+    Write-Host  "In Configure SNMP Attributes Function....`n" -ForegroundColor Black -BackgroundColor Cyan
+    #
+    # Set SNMP Traps and SNMP Community String 
+    # Sets Read Only Rights on the specified comunity
+    #
+    Write-Host Community String that would be set is: $CommunityString
+    Write-Host Permitted Managers that would be configured is: $PermitedManagers
+    Write-Host "`n####################`n" -ForegroundColor Black -BackgroundColor Green
+#    Foreach ($String in $CommunityString)
+#    {
+        Write-Host  $CommunityString`t`t`t -NoNewline
+        Write-Host  Setting Community string value  -ForegroundColor Green -BackgroundColor Black       
+        #
+        # Write registry keys
+        #
+#        reg add ("HKLM\SYSTEM\CurrentControlSet\services\SNMP\Parameters\TrapConfiguration\" + $CommunityString) /f  | Out-Null -Verbose
+        #
+        # Setting the Default value to be null
+        #
+        reg add "HKLM\SYSTEM\CurrentControlSet\services\SNMP\Parameters\ValidCommunities\" /v $CommunityString /t REG_DWORD /d 4 /f | Out-Null -Verbose
+        reg add "HKLM\SYSTEM\CurrentControlSet\services\SNMP\Parameters\PermittedManagers\" /v 2 /t REG_SZ /d $PermitedManagers /f | Out-Null
+<#    Foreach ($Manager in $PermitedManagers)
+        {
+        Write-Host $Manager `t -NoNewline
+        Write-Host "is the permitted manager... that would be configured" -ForegroundColor Green -BackgroundColor Black
+        reg add "HKLM\SYSTEM\CurrentControlSet\services\SNMP\Parameters\PermittedManagers\" /v $i /t REG_SZ /d $PermitedManagers /f #| Out-Null
+        reg add ("HKLM\SYSTEM\CurrentControlSet\services\SNMP\Parameters\TrapConfiguration\" + $CommunityString) /v $i /t REG_SZ /d $PermitedManagers /f | Out-Null
+        $i++
+        }#>
+#    }
+#    return
+}
+
+#
+# Main script for Configuring SNMP
+#
+#$CommunityString= Read-Host "Enter the community string"
+#$PermitedManagers= Read-Host "Enter the permitted manager"
+#
+#
+#If([Environment]::OSVersion.Version -le (new-object 'Version' 6,1) -or (Get-WmiObject -class Win32_OperatingSystem).Caption -eq "Microsoft Windows 8.1" )
+#{
+    $SNMPInstallStatus=Get-WindowsOptionalFeature -Online | Sort-Object FeatureName | where {$_.FeatureName -like "SNMP"}
+    if  ($SNMPInstallStatus.State -ne "Enabled")
+    {
+        Write-Host "`nInstall SNMP, its currently not installed on " -NoNewline   -ForegroundColor Black -BackgroundColor Green
+        Write-Host $env:COMPUTERNAME -ForegroundColor Green -BackgroundColor Red
+        Get-WindowsOptionalFeature -Online | ? FeatureName -like "SNMP" | Enable-WindowsOptionalFeature  -Online -NoRestart -Verbose
+        $SNMPService=Get-WmiObject -Class win32_service | Where-Object {$_.Name -like "SNMP"}
+        $SNMPService
+        Set-Service -Name $SNMPInstallStatus.FeatureName  -StartupType Automatic -Verbose
+        Get-WmiObject -Class win32_service | Where-Object {$_.Name -like "SNMP"}
+#        return
+    }
+#    else
+#    {
+        #Write-Host "Looping into else condition now...."
+        Write-Host "`n"$env:COMPUTERNAME  is (Get-WmiObject -class Win32_OperatingSystem).Caption "- OS Version :" `
+                                                                                    (Get-WmiObject -class Win32_OperatingSystem).version -ForegroundColor white -BackgroundColor Black
+        Write-Host $SNMPInstallStatus.FeatureName "is already installed on " -NoNewline   -ForegroundColor Black -BackgroundColor Green
+        Write-Host $env:COMPUTERNAME -ForegroundColor Green -BackgroundColor Red
+        #
+        # Call SNMP Configuration Function
+        #
+        Configure_SNMP_Attributes -CommunityString $CommunityString -PermitedManagers $PermitedManagers
+        Restart-Service -Name SNMP
+#      }
+
+# }
+ <#
+else
+{
+    Write-Host "Other Operating System" -ForegroundColor White -BackgroundColor Green
+    Import-Module ServerManager
+    $ValidateInstall=Get-Windowsfeature | Where-Object Name -eq "SNMP-Services"
+    if ($ValidateInstall.installed -ne "True")
+    {
+        Add-WindowsFeature SNMP-Services -Verbose
+    }
+    else
+    {
+        Write-Host "`n"$env:COMPUTERNAME  is (Get-WmiObject -class Win32_OperatingSystem).Caption "- OS Version :" `
+                                                                                (Get-WmiObject -class Win32_OperatingSystem).version -ForegroundColor white -BackgroundColor Black
+        Write-Host "`nSNMP Services are already installed" -ForegroundColor Green -BackgroundColor Black
+        #
+        # Call SNMP Configuration Function
+        #
+        Configure_SNMP_Attributes -compname $env:COMPUTERNAME -CommunityString $CommunityString -PermitedManagers $PermitedManagers
+    }
+}
+#>

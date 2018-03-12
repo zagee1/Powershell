@@ -1,0 +1,12 @@
+VMname,OS,CPU,Core,RAM,HDType,HD1,HD2,HD3,MAC1,MAC2
+NDC-Solgar-Dc01,windows8Server64Guest,1,2,4,SAS,80,,,00:50:56:a6:77:29,
+NDC-Solgar-RDB01,windows8Server64Guest,1,4,6,SAS,80,,,00:50:56:a6:64:85,00:50:56:A6:48:CD
+NDC-Solgar-FS,windows8Server64Guest,1,4,6,SAS,200,100,300,00:50:56:a6:7b:66,
+NDC-Solgar-App,windows7Server64Guest,1,4,14,SAS,250,,,00:50:56:a6:7d:63,00:50:56:A6:4D:79
+NDC-Solgar-IIS,windows7Server64Guest,1,2,4,SAS,50,,,00:50:56:a6:4b:2a,
+NDC-Solgar-Access,windows8Server64Guest,2,2,8,SAS,300,,,00:50:56:a6:31:25,
+NDC-Solgar-TS01,windows8Server64Guest,1,4,14,SSD,80,,,00:50:56:A6:08:13,
+NDC-Solgar-TS02,windows8Server64Guest,1,4,14,SSD,80,,,00:50:56:a6:0a:82,
+NDC-Solgar-Supeherb-store,windows8Server64Guest,1,2,8,SSD,100,,,00:50:56:a6:19:b2,00:50:56:A6:34:1F
+NDC-Solgar-qlikview,windows7Server64Guest,6,2,12,SSD,150,,,00:50:56:a6:75:51,00:50:56:A6:29:E4
+NDC-Solgar-WMS,windows7Server64Guest,2,3,14,SSD,100,200,,00:50:56:8d:d4:61,00:50:56:8D:35:AA

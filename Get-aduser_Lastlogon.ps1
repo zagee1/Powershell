@@ -1,0 +1,2 @@
+﻿get-aduser -Filter * -properties lastlogontimestamp -SearchBase "OU=Asnin Users,DC=Asnin-Dan,DC=co,DC=il" | select GivenName, `
+    @{Name="LastLogonTimeStamp";Expression={([datetime]::FromFileTime($_.LastLogonTimeStamp))}}

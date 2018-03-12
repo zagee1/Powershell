@@ -1,0 +1,1 @@
+﻿Get-DhcpServerv4Lease -ScopeId 172.16.149.0 -ClientId "005056bd6a2e" | Add-DhcpServerv4Reservation -IPAddress 172.16.149.125

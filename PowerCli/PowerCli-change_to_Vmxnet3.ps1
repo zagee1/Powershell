@@ -1,0 +1,1 @@
+﻿Get-VM VM | Get-NetworkAdapter | Set-NetworkAdapter -Type Vmxnet3

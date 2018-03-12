@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<SkuManifest xmlns = "http://schemas.microsoft.com/2003/04/26/sm" root = "C:\Users\GUY~1.OBI\AppData\Local\Temp\OCTWork\{3C6C9070-6A8F-41FD-BCD0-A08F7773B1C5}">
+	<FileTransfer src="C:\Users\GUY~1.OBI\AppData\Local\Temp\OCTWork\{3C6C9070-6A8F-41FD-BCD0-A08F7773B1C5}\Icons\grv_icons.exe" dest="C:\Users\guy.OBIZ\Desktop\Powershell\New-TS\office_2016.MSP" binaryId="" />
+	<FileTransfer src="C:\Users\GUY~1.OBI\AppData\Local\Temp\OCTWork\{3C6C9070-6A8F-41FD-BCD0-A08F7773B1C5}\Icons\joticon.exe" dest="C:\Users\guy.OBIZ\Desktop\Powershell\New-TS\office_2016.MSP" binaryId="" />
+	<FileTransfer src="C:\Users\GUY~1.OBI\AppData\Local\Temp\OCTWork\{3C6C9070-6A8F-41FD-BCD0-A08F7773B1C5}\Icons\misc.exe" dest="C:\Users\guy.OBIZ\Desktop\Powershell\New-TS\office_2016.MSP" binaryId="" />
+	<FileTransfer src="C:\Users\GUY~1.OBI\AppData\Local\Temp\OCTWork\{3C6C9070-6A8F-41FD-BCD0-A08F7773B1C5}\Icons\msouc.exe" dest="C:\Users\guy.OBIZ\Desktop\Powershell\New-TS\office_2016.MSP" binaryId="" />
+	<FileTransfer src="C:\Users\GUY~1.OBI\AppData\Local\Temp\OCTWork\{3C6C9070-6A8F-41FD-BCD0-A08F7773B1C5}\Icons\osmadminicon.exe" dest="C:\Users\guy.OBIZ\Desktop\Powershell\New-TS\office_2016.MSP" binaryId="" />
+	<FileTransfer src="C:\Users\GUY~1.OBI\AppData\Local\Temp\OCTWork\{3C6C9070-6A8F-41FD-BCD0-A08F7773B1C5}\Icons\osmclienticon.exe" dest="C:\Users\guy.OBIZ\Desktop\Powershell\New-TS\office_2016.MSP" binaryId="" />
+	<FileTransfer src="C:\Users\GUY~1.OBI\AppData\Local\Temp\OCTWork\{3C6C9070-6A8F-41FD-BCD0-A08F7773B1C5}\Icons\outicon.exe" dest="C:\Users\guy.OBIZ\Desktop\Powershell\New-TS\office_2016.MSP" binaryId="" />
+	<FileTransfer src="C:\Users\GUY~1.OBI\AppData\Local\Temp\OCTWork\{3C6C9070-6A8F-41FD-BCD0-A08F7773B1C5}\Icons\pptico.exe" dest="C:\Users\guy.OBIZ\Desktop\Powershell\New-TS\office_2016.MSP" binaryId="" />
+	<FileTransfer src="C:\Users\GUY~1.OBI\AppData\Local\Temp\OCTWork\{3C6C9070-6A8F-41FD-BCD0-A08F7773B1C5}\Icons\pubs.exe" dest="C:\Users\guy.OBIZ\Desktop\Powershell\New-TS\office_2016.MSP" binaryId="" />
+	<FileTransfer src="C:\Users\GUY~1.OBI\AppData\Local\Temp\OCTWork\{3C6C9070-6A8F-41FD-BCD0-A08F7773B1C5}\Icons\wordicon.exe" dest="C:\Users\guy.OBIZ\Desktop\Powershell\New-TS\office_2016.MSP" binaryId="" />
+	<FileTransfer src="C:\Users\GUY~1.OBI\AppData\Local\Temp\OCTWork\{3C6C9070-6A8F-41FD-BCD0-A08F7773B1C5}\Icons\xlicons.exe" dest="C:\Users\guy.OBIZ\Desktop\Powershell\New-TS\office_2016.MSP" binaryId="" />
+</SkuManifest>

@@ -1,0 +1,1 @@
+﻿Get-Datastore -Name Infini_VMFS* -Location BDC-DataCenter | Where-Object {($_.FreeSpaceGB -ge 400) -and ($_.Name -notlike "*MBX*")}
