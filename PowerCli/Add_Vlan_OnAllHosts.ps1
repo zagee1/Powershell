@@ -1,6 +1,6 @@
 ﻿Connect-VIServer -Server 172.16.18.100
-$vLanID = '152'
-$vLanName = 'Zriz'
+$vLanID = '155'
+$vLanName = 'Adanim'
 
 Get-VMHost -Name 172.16.18* -Location BDC-DataCenter | Get-VirtualSwitch -Name vSwitch1 |
 New-VirtualPortGroup -Name $vLanName'_Host_10G' -VLanId $vLanID
