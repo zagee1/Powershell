@@ -1,0 +1,6 @@
+New-VM -VMHost 172.16.18.113 -Version v8 -Name NDC-Solgar-Test -Location Solgar.local -Datastore Infini_VMFS25 -DiskGB 80 -DiskStorageFormat Thin  -MemoryMB 4000 -NumCpu 2  -CD 
+ Get-VM NDC-Solgar-Test | Get-NetworkAdapter
+ [-NetworkName <String[]>] [-HARestartPriority <HARestartPriority>] [-HAIsolationResponse <HAIsolationResponse>] [-DrsAutomationLevel <DrsAutomationLevel>] [-VMSwapfilePolicy <VMSwapfilePolicy>] [-Server <VIServer[]>] [-RunAsync] [-Description <String>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+
+
+New-VM [-VMHost] <VMHost> -Name <String> [-ResourcePool <ResourcePool>] [-VApp <VApp>] [-Location <Folder>] [-Datastore <Datastore>] [-Template] <Template> [-DiskStorageFormat <VirtualDiskStorageFormat>] [-OSCustomizationSpec <OSCustomizationSpec>] [-HARestartPriority <HARestartPriority>] [-HAIsolationResponse <HAIsolationResponse>] [-DrsAutomationLevel <DrsAutomationLevel>] [-Server <VIServer[]>] [-RunAsync] [-Description <String>] [-WhatIf] [-Confirm] [<CommonParameters>] 

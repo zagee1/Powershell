@@ -1,0 +1,4 @@
+Get-WmiObject win32_processor | Select-Object SystemName,CpuStatus,NumberOfCores
+Get-WmiObject win32_PhysicalMemory |Select-Object Capacity
+Get-WmiObject win32_LogicalDisk | Select-Object DeviceID,Size
+ipconfig /all | find "Physical Address. . . . . . . . . : 00-50-56"
